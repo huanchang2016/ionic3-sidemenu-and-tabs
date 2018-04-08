@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import $  from 'jquery';
-import { LoginRegisterProvider } from '../../providers/login-register/login-register';
+import { LoginRegisterProvider } from '../../../providers/login-register/login-register';
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -12,7 +12,7 @@ export class RegisterPage {
     type: '',
     phone: '',
     password: '',
-    password_confirmatio: '',
+    password_confirmation: '',
     code: '',
   };
   public type: string = '';
@@ -21,7 +21,7 @@ export class RegisterPage {
   public password_confirmation:string = '';
   public code: string = '';
   public coding: boolean = false;
-  public seconds : number = 5;
+  public seconds : number;
 
   constructor(
     public navCtrl: NavController,
@@ -37,26 +37,58 @@ export class RegisterPage {
   registerSubmit = () => {
     this.checkedInputs();
     this.loginRegisterService.console('跳转登录');
-    this.navCtrl.push('LoginPage'); // ionic 路由跳转
     if(this.submiting){
-      console.log('submiting');
       this.options = {
         type: this.type,
         phone: this.phone,
         password: this.password,
-        password_confirmatio: this.password_confirmation,
+        password_confirmation: this.password_confirmation,
         code: this.code,
       }
+      this.loginRegisterService.registerAccount(this.options).then(res=>{
+        if(res['code']=== 1){
+          this.navCtrl.push('LoginPage'); // ionic 路由跳转
+        }else{
+          
+        }
+      })
+    }else{
+      this.loginRegisterService.showAlert({
+        title: '错误',
+        subTitle: '用户信息未完全填写'
+      })
     }
   }
 
   sendCode = (btn) => {
+    if(!this.phone){
+      this.loginRegisterService.showAlert({
+        title: '操作错误',
+        subTitle: '手机号码不能为空！'
+      });
+    }else{
+      this.loginRegisterService.sendMessage({phone: this.phone}).then(res=>{
+        if(res['code'] === 1){
+          this.setTimeOutFn(5);
+        }else{
+          this.loginRegisterService.showAlert({
+            title: '发送失败',
+            subTitle: res['msg']
+          })
+        }
+      })
+    }
+  }
+
+  // 验证码倒计时发送
+  setTimeOutFn(t){
     this.coding = true;
+    this.seconds = t;
     let time = setInterval(() =>{
       this.seconds--;
       if(this.seconds <= 0){
         this.coding = false;
-        this.seconds = 5;
+        this.seconds = t;
         clearInterval(time);
       }
     }, 1000)

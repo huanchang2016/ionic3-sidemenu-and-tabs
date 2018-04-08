@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LoginRegisterProvider } from '../../providers/login-register/login-register';
+import { LoginRegisterProvider } from '../../../../providers/login-register/login-register';
 
 /**
  * Generated class for the AccountLoginPage page.
@@ -41,10 +41,19 @@ export class AccountLoginPage {
       });
       return false;
     }
-    // if(){
-      //当返回值判断，登录成功后，跳转到首页。 
-    // }
-    this.loginRegisterService.backToHome();
+    this.loginRegisterService.loginInUserAccount({
+      phone: this.phone,
+      password: this.password
+    }).then(res=>{
+      if(res['code'] === 1){
+        this.loginRegisterService.backToHome();
+      }else{
+        this.loginRegisterService.showAlert({
+          title: '登录失败',
+          subTitle: res['msg']
+        })
+      }
+    })
   }
 
   checkInputs = () => {

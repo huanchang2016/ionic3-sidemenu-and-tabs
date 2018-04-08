@@ -4,9 +4,9 @@ import { NavController, NavParams, IonicPage } from 'ionic-angular';
 @IonicPage()
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'laws.html'
 })
-export class ListPage {
+export class LawsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -16,7 +16,7 @@ export class ListPage {
   }
   itemTapped(event, item) {
     // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
+    this.navCtrl.push(LawsPage, {
       item: item
     });
   }
