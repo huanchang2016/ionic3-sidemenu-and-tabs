@@ -55,6 +55,9 @@ export class AccountLoginPage {
       }
     })
   }
+  forgetPassword(){
+    console.log('忘记密码!');
+  }
 
   checkInputs = () => {
     if(this.phone !== '' && this.password !== ''){
