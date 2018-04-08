@@ -18,6 +18,10 @@ export class JobMapPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  tapend = () => {
+    // this.navCtrl.setRoot('HomePage');
+    this.navCtrl.pop();
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad JobMapPage');
   }

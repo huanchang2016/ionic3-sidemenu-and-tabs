@@ -22,7 +22,8 @@ export class MyApp {
       { title: '网站首页', component: 'HomePage' },
       { title: '就业服务', component: 'ZhaopinPage' },
       { title: '政策法规', component: 'ListPage' },
-      { title: '个人中心', component: 'LoginPage' }
+      { title: '个人中心', component: 'LoginPage' },
+      { title: '注册', component: 'RegisterPage' }
     ];
 
   }

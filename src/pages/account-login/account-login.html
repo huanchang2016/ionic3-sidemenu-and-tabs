@@ -1,21 +1,23 @@
-<!--
-  Generated template for the AccountLoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>账号登录</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>账号</ion-label>
+      <ion-input type="number" [(ngModel)]="phone" (ngModelChange)="checkInputs()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>密码</ion-label>
+      <ion-input type="password" [(ngModel)]="password" (ngModelChange)="checkInputs()"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button [disabled]="!isLogin" ion-button full (tap)="login()">登录</button>
 
 </ion-content>
