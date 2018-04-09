@@ -1,0 +1,31 @@
+home-jobs-list {
+    .new-jobs{
+        margin-top:1rem;
+        .title{
+            text-indent: 2rem;
+            margin-bottom: 0;
+            line-height: 2.6rem;
+            &:before{
+                content: '';
+                display:block;
+                width: 0.4rem;
+                height:2.6rem;
+                float: $left;
+                background: $background;
+            }
+            .more{
+                font-size: 1.4rem;
+                margin-right: 1.0rem;
+            }
+        }
+    }
+    .item-inner{
+        height: 8rem;
+        .label-ios{
+            margin:0;
+        }
+        .price{
+            color: #f53d3d;
+        }
+    }
+}

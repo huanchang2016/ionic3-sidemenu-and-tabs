@@ -56,7 +56,8 @@ export class AccountLoginPage {
     })
   }
   forgetPassword(){
-    console.log('忘记密码!');
+    // this.navCtrl.setRoot("ModifyPasswordPage");
+    this.loginRegisterService.goToForgetPasswordPage();
   }
 
   checkInputs = () => {

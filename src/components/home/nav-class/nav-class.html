@@ -1,0 +1,10 @@
+<ion-grid>
+  <ion-row>
+    <ion-col col-3 *ngFor="let card of classfiyImgs">
+      <div class="card-box">
+        <img src="{{card.src}}" alt="{{card.title}}">
+        <p class="sub-title">{{card.title}}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

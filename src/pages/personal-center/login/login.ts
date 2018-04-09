@@ -18,7 +18,6 @@ export class LoginPage {
   accountLoginRoot = 'AccountLoginPage'
   codeLoginRoot = 'CodeLoginPage'
 
-
   constructor(
     public navCtrl: NavController,
     private events: Events
@@ -26,17 +25,21 @@ export class LoginPage {
 
   ionViewDidLoad() {
     this.listenEvents();
+    this.listenEventsForgetPassword();
     console.log('login----> 账号登录页面加载事件！');
   }
   ionViewWillUnload() {
     this.events.unsubscribe('toLogin');
-    // console.log('界面销毁');
+    this.events.unsubscribe('forgetPassword');
   }
   listenEvents() {
     this.events.subscribe('toHome', () => {
       this.navCtrl.setRoot('HomePage');
-      // this.nav.pop(); 使用这种方式也可以，但是会在登录框中默认填上值
-      // console.log('返回登录');
+    });
+  }
+  listenEventsForgetPassword() {
+    this.events.subscribe('forgetPassword', () => {
+      this.navCtrl.setRoot('ModifyPasswordPage');
     });
   }
 }

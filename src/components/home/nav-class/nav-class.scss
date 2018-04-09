@@ -1,0 +1,23 @@
+nav-class {
+
+      ion-grid{
+        padding: 0!important;
+        text-align: center;
+        ion-row ion-col{
+            height: 8rem;
+        }
+        .card-box{
+            margin-top: 0.6rem;
+            img{
+                background: red;
+                width: 4rem;
+                border-radius: 5px;
+            }
+            .sub-title{
+                padding: 5px 0;
+                margin:0;
+            }
+        }
+            
+      }
+}

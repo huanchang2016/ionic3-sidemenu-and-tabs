@@ -36,7 +36,6 @@ export class RegisterPage {
   public submiting:boolean = false;// 信息是否全部填写
   registerSubmit = () => {
     this.checkedInputs();
-    this.loginRegisterService.console('跳转登录');
     if(this.submiting){
       this.options = {
         type: this.type,

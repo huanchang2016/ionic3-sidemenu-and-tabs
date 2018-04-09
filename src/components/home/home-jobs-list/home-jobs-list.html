@@ -1,0 +1,13 @@
+<div class="new-jobs">
+  <h4 class="title">
+    <span>最新职位</span>
+    <a class="primary fr more" (tap)="navToMoreJobs()">查看更多>></a>
+  </h4>
+</div>
+<ion-list>
+  <button ion-item *ngFor="let job of jobs" (click)="itemSelected(job.id)">
+   <p class="clear"><span class="fl primary">{{job.name}}</span> <span class="fr danger">{{job.created_at}}</span></p>
+   <p class="dark">{{job.user.company.name}}</p>
+   <p class="price">职位价格5k-8k/月</p>
+  </button>
+</ion-list>

@@ -41,21 +41,33 @@ $colors: (
 
 @each $class, $color in $colors {
   .#{$class} {
-    background: $color;
+    color: $color;
   }
 }
 
 // theme : css 
 $background: #2473fd;
 
-
-// class theme
+// class theme, self defined
 .background{
   background: $background;
 }
 .light-background {
   background: lighten($background, 90%);
 }
+
+ion-label{
+  font-size: 1.4rem!important;
+}
+.label-ios{
+  margin-top:0!important;
+}
+$left: left;
+$right: right;
+
+.fl{ float: $left;}
+.fr{ float: $right;}
+.clear{ clear:both;}
 
 // App iOS Variables
 // --------------------------------------------------

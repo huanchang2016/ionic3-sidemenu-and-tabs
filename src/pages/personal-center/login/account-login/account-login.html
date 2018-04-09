@@ -20,7 +20,9 @@
   </ion-list>
   <div padding>
     <button [disabled]="!isLogin" ion-button full (tap)="login()">登录</button>
-    <span style="color: #488aff;margin-top: 15px;" (tap)="forgetPassword()">忘记密码?</span>
+    <div style="color: #488aff;margin-top: 1.5rem;">
+      <span (tap)="forgetPassword()">忘记密码?</span>
+    </div>
   </div>
 
 </ion-content>

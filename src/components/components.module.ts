@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
-import { LoginComponent } from './login/login';
-import { LoginAccountLoginComponent } from './login-account-login/login-account-login';
+import { IonicModule } from 'ionic-angular';
+
+import { SliderComponent } from './home/slider/slider';
+import { NavClassComponent } from './home/nav-class/nav-class';
+import { HomeJobsListComponent } from './home/home-jobs-list/home-jobs-list';
+
 @NgModule({
-	declarations: [LoginComponent,
-    LoginAccountLoginComponent],
-	imports: [],
-	exports: [LoginComponent,
-    LoginAccountLoginComponent]
+	declarations: [
+		SliderComponent,
+		NavClassComponent,
+    	HomeJobsListComponent
+	],
+	imports: [
+		IonicModule
+	],
+	exports: [
+		SliderComponent,
+		NavClassComponent,
+    	HomeJobsListComponent
+	]
 })
-export class ComponentsModule {}
+export class ComponentsModule { }
